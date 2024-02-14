@@ -2,6 +2,14 @@ package main
 
 import "fmt"
 
+func sum(numbers []int) int {
+	total := 0
+	for _, num := range numbers {
+		total += num
+	}
+	return total
+}
+
 func add(x, y int) int {
 	return x + y
 }
