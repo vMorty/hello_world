@@ -1,6 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"os"
+	"strconv"
+)
+
+func main() {
+	if len(os.Args) != 2 {
+		log.Printf("You Suck! give me your first name")
+		return
+	}
+	if isNumeric(os.Args[1]) {
+		log.Printf("I'm sorry, but it cannot be a number")
+		return
+	}
+
+}
+
+func isNumeric(s string) bool {
+	_, err := strconv.ParseFloat(s, 64)
+	return err == nil
+}
 
 func sum(numbers []int) int {
 	total := 0
@@ -8,15 +29,4 @@ func sum(numbers []int) int {
 		total += num
 	}
 	return total
-}
-
-func add(x, y int) int {
-	return x + y
-}
-
-func main() {
-	num1 := 15
-	num2 := 18
-	result := add(num1, num2)
-	fmt.Printf("%d +%d = %d\n", num1, num2, result)
 }
